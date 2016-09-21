@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1 id="header1"></h1>
+        <script src="node_modules/systemjs/dist/system.js"></script>
+        <script>
+	        System.config({ packages : { 'app' : { main: 'main.js', defaultExtension : 'js' }}});
+	        System.import('app');
+        </script>
+    </body>
+</html>
