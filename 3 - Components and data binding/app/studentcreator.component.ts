@@ -8,7 +8,7 @@ import { Student }   from './student';
         <input type="text"   [(ngModel)]="current.lastName" />
         <input type="text"   [(ngModel)]="current.company" />
         <input type="number" [(ngModel)]="current.age" />
-        <input type="button" value="Add student" (click)="addStudent()" />
+        <input type="button" value="Add student" (click)="addStudent()" [disabled]="isValid" />
     `
 })
 export class StudentCreatorComponent{
@@ -22,5 +22,9 @@ export class StudentCreatorComponent{
         
         this.addedStudent.emit(this.current);
         this.current = new Student("","",0,"");
+    }
+
+    get isValid(): boolean{
+        return !(this.current.firstName && this.current.lastName && this.current.company && this.current.age > 0);
     }
 }
